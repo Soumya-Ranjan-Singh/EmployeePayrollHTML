@@ -140,6 +140,22 @@ select{
     text-decoration: none;
     text-align: center;
 }
+#submitButton:hover{
+    background-color: rgb(72, 194, 55);
+    color: white;
+}
+#resetButton:hover{
+    background-color: rgb(29, 5, 245);
+    color: white;
+}
+#cancelButton:hover{
+    background-color: rgba(240, 1, 1, 0.832);
+    color: white;
+}
+#submitButton:active, #resetButton:active, #cancelButton:active{
+    background-color: rgb(163, 12, 234);
+    color: rgb(0, 0, 0);
+}
 @media only screen and (max-width: 960px){
     .cancelButton{
         margin-left: 0px;

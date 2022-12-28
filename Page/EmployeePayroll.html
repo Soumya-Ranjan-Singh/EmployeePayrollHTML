@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet"href="./EmployeePayroll.css">
+        <link rel="stylesheet"href="../CSS/EmployeePayroll.css">
         <title> Employee Payroll Form </title>
     </head>
 
     <body>
         <header class="header-content header">
             <div class="logo-content">
-                <img src="./assets/images/logo.png" alt="">
+                <img src="../assets/images/logo.png" alt="">
                 <div>
                     <span class="emp-text">EMPLOYEE</span><br>
                     <span class="emp-text emp-payroll">PAYROLL</span>
@@ -19,36 +19,37 @@
         </header>
         <div class="form-content">
             <form class="form" action="#"
-               onsubmit="save();return false">
+               onsubmit="save()">
                 <div class="form-head">Employee Payroll Form</div>
                 <div class="row-content">
                     <label class="label text" 
                       for="name"> Name</label>
                     <input class="input" type="text" id="name" 
                              name="name" placeholder="Your Name..." required>
+                             <error-output class="text-error" for="text"></error-output>
                 </div>
                 <div class="row-content">
                     <label class="label text" for="profile">Profile Image</label>
                     <div class="profile-radio-content">
                         <label>
-                            <input type="radio" id="profile1" name="profile" value="./assets/profile-images/Ellipse -1.png" required>
-                            <img class="profile" id='image1' alt="Profile image 1" src="./assets/profile-images/Ellipse -1.png">
+                            <input type="radio" id="profile1" name="profile" value="Profile-images/Ellipse -1.png" required>
+                            <img class="profile" id='image1' alt="Profile image 1" src="../assets/profile-images/Ellipse -1.png">
                         </label>
                         <label>
-                            <input type="radio" id="profile2" name="profile" value="./assets/profile-images/Ellipse -2.png" required>
-                            <img class="profile" id='image2' alt="Profile image 2" src="./assets/profile-images/Ellipse -2.png">
+                            <input type="radio" id="profile2" name="profile" value="Profile-images/Ellipse -2.png" required>
+                            <img class="profile" id='image2' alt="Profile image 2" src="../assets/profile-images/Ellipse -2.png">
                         </label>
                         <label>
-                            <input type="radio" id="profile3" name="profile" value="./assets/profile-images/Ellipse -3.png" required>
-                            <img class="profile" id='image3' alt="Profile image 3" src="./assets/profile-images/Ellipse -3.png">
+                            <input type="radio" id="profile3" name="profile" value="Profile-images/Ellipse -3.png" required>
+                            <img class="profile" id='image3' alt="Profile image 3" src="../assets/profile-images/Ellipse -3.png">
                         </label>
                         <label>
-                            <input type="radio" id="profile4" name="profile" value="./assets/profile-images/Ellipse -4.png" required>
-                            <img class="profile" id='image4' alt="Profile image 4" src="./assets/profile-images/Ellipse -4.png">
+                            <input type="radio" id="profile4" name="profile" value="Profile-images/Ellipse -4.png" required>
+                            <img class="profile" id='image4' alt="Profile image 4" src="../assets/profile-images/Ellipse -4.png">
                         </label>
                         <label>
-                            <input type="radio" id="profile5" name="profile" value="./assets/profile-images/Ellipse -5.png" required>
-                            <img class="profile" id='image5' alt="Profile image 5" src="./assets/profile-images/Ellipse -5.png">
+                            <input type="radio" id="profile5" name="profile" value="Profile-images/Ellipse -5.png" required>
+                            <img class="profile" id='image5' alt="Profile image 5" src="../assets/profile-images/Ellipse -5.png">
                         </label>
                     </div>
                 </div>
@@ -156,13 +157,7 @@
                 </div>
             </div>
             </form>
-            <script>
-                const salary = document.querySelector('#salary');
-                const output = document.querySelector('.salary-output');
-                salary.addEventListener('input', function() {
-                    output.textContent = salary.value;
-                });
-            </script>
+            <script src="../JavaScripts/EventListner.js"></script>
         </div>    
     </body>
 </html>

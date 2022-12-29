@@ -15,69 +15,61 @@ class EmployeePayrollData{
     }
     get name(){
         return this._name;
-     }
-        set name(name)
-        {
-         let nameREgex = RegExp('^[A-Z]{1}[a-z]{2,}$');
-         if(nameREgex.test(name))
-         this._name = name;
-         else throw 'Name is Incorrect'
-       }
-     get profilePic(){
-         return this._profilePic;
-     }
-     set profilePic(profilePic){
-         this._profilePic = profilePic;
- 
-     }
- 
-     get gender(){
-         return this._gender;
-     }
-     set gender(gender){
-         this._gender = gender;
-     }
- 
-     get department(){
-         return this._department;
-     }
-     set department(department)
-     {
-         this._department = department;
-     }
- 
-     get salary(){
-         return this._salary;
-     }
-     set salary(salary){
-         this._salary = salary;
-     }
- 
-     get note(){
-         return this._note;
-     }
-     set note(note){
-         this._note = note; 
-     }
- 
-     get satrtDate(){
-         return this._startDate;
-     }
-     set satrtDate(satrtDate){
-         this._startDate = satrtDate;
-     }
-     //method
-     toString(){
-         const options = {year : 'numeric', month: 'long', day:'numeric'};
-         const empDate = !this.satrtDate ?"undefined": this.satrtDate.toLocaleDateString("en-US",options);
- 
-         return "id=" + this.id +" ,name = " + this.name + ",gender=" + this.gender + ",profilePic=" + this.profilePic + ",department=" + this.department +",salary=" + this.salary + ",startDate = " + empDate + ",note=" +this.note;
-        }
+    }
+    set name(name){
+        let nameRegex = RegExp('^[A-Z]{1}[a-z]{2,} [A-Z]{1}[a-z]{2,}$');
+        if(nameRegex.test(name))
+        this._name = name;
+        else throw 'Name is Incorrect';
+    }
+    get profilePic(){
+        return this._profilePic;
+    }
+    set profilePic(profilePic){
+        this._profilePic = profilePic;
+    }
+    get gender(){
+        return this._gender;
+    }
+    set gender(gender){
+        this._gender = gender;
+    }
+    get department(){
+        return this._department;
+    }
+    set department(department){
+        this._department = department;
+    }
+    get salary(){
+        return this._salary;
+    }
+    set salary(salary){
+        this._salary = salary;
+    }
+    get note(){
+        return this._note;
+    }
+    set note(note){
+        this._note = note; 
+    }
+    get startDate(){
+        return this._startDate;
+    }
+    set startDate(startDate){
+        this._startDate = startDate;
+    }
+    //method
+    toString(){
+        // const options = {year : 'numeric', month: 'long', day:'numeric'};
+        // const empDate = this.startDate==undefined ? "undefined" : this.startDate.toLocaleDateString("en-US",options);
+        return "id=" + this.id +" ,name = " + this.name + ",gender=" + this.gender + ",profilePic=" + this.profilePic + 
+        ",department=" + this.department +",salary=" + this.salary + ",startDate = " + this.startDate + ",note=" +this.note;
+    }
  }
 
- /**
- * Ability to set Event Listeners when Document is loaded so as to.
- */
+/**
+* Ability to set Event Listeners when Document is loaded so as to.
+*/
 //..........UC2...........
 window.addEventListener('DOMContentLoaded',(event) => {
     const name = document.querySelector('#name');
@@ -127,7 +119,6 @@ function createAndUpdateStorage(employeePayrollData){
     }else{
         employeePayrollList = [employeePayrollData];
     }
-    alert(employeePayrollList.toString());
     localStorage.setItem("EmployeePayrollList",JSON.stringify(employeePayrollList))
 }
 
@@ -145,9 +136,12 @@ const createEmployeePayroll = () => {
     employeePayrollData.department = getSelectedValues('[name=department]');
     employeePayrollData.salary = getInputValueById('#salary');
     employeePayrollData.note = getInputValueById('#notes');
+    let year = getInputValueById('#year');
+    let month = getInputValueById('#month');
+    let day = getInputValueById('#day');
 
-    let date = getInputValueById('#day')+" "+getInputValueById('#month')+" "+getInputValueById('#year');
-    employeePayrollData.date = Date.parse(date);
+    const options = {year : 'numeric', month: 'long', day:'numeric'};
+    employeePayrollData.startDate = new Date(year+" "+month+" "+day).toLocaleDateString("en-US",options);
     alert(employeePayrollData.toString());
     return employeePayrollData;
 }
